@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from '../../redux/operations';
 import { selectContacts } from '../../redux/selectors';
-import { addContact } from '../../redux/contactsSlice';
 
 import {
   Form,
@@ -14,11 +14,11 @@ import {
 export const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-
-  const [formContact, setFormContact] = useState({ name: '', number: '' });
+  const [formContact, setFormContact] = useState({ name: '', phone: '' });
 
   const handleChange = event => {
-    const { name, value } = event.currentTarget;
+    const { name, value } = event.target;
+    console.log(contacts);
 
     setFormContact(prevState => ({
       ...prevState,
@@ -28,6 +28,7 @@ export const ContactForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    console.log(contacts);
 
     const isOnContacts = contacts.some(
       contact =>
@@ -46,7 +47,7 @@ export const ContactForm = () => {
   };
 
   const reset = () => {
-    setFormContact({ name: '', number: '' });
+    setFormContact({ name: '', phone: '' });
   };
 
   return (
@@ -71,8 +72,8 @@ export const ContactForm = () => {
           Number
           <Input
             type="tel"
-            name="number"
-            value={formContact.number}
+            name="phone"
+            value={formContact.phone}
             onChange={handleChange}
             required
             placeholder="459-12-56"
