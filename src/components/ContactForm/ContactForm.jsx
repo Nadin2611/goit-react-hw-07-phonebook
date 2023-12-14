@@ -14,6 +14,7 @@ import {
 export const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
+  console.log(contacts);
   const [formContact, setFormContact] = useState({ name: '', phone: '' });
 
   const handleChange = event => {
@@ -40,7 +41,7 @@ export const ContactForm = () => {
       alert(`${formContact.name} is already in contacts.`);
       return;
     }
-
+    console.log(formContact);
     dispatch(addContact(formContact));
 
     reset();
