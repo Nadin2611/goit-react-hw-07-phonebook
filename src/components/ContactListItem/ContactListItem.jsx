@@ -3,12 +3,19 @@ import {
   ContactName,
   ContactNumber,
   DeleteButton,
+  ButtonContainer,
+  ContactContainer,
 } from './ContactListItem.styled';
 
-export const ContactListItem = ({ name, number, onDelete }) => (
+export const ContactListItem = ({ name, number, onDelete, onEdit }) => (
   <ListItem>
-    <ContactName>{name}</ContactName>
-    <ContactNumber>{number}</ContactNumber>
-    <DeleteButton onClick={onDelete}>Delete</DeleteButton>
+    <ContactContainer>
+      <ContactName>{name}</ContactName>
+      <ContactNumber>{number}</ContactNumber>
+    </ContactContainer>
+
+    <ButtonContainer>
+      <DeleteButton onClick={onDelete}>Delete</DeleteButton>
+    </ButtonContainer>
   </ListItem>
 );

@@ -8,6 +8,12 @@ export const ListItem = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 30px;
+`;
+export const ContactContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 `;
 
 export const ContactName = styled.span`
@@ -16,6 +22,12 @@ export const ContactName = styled.span`
 
 export const ContactNumber = styled.span`
   font-weight: bold;
+  margin-left: auto;
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  gap: 10px;
 `;
 
 export const DeleteButton = styled.button`
@@ -31,3 +43,17 @@ export const DeleteButton = styled.button`
     background: ${props => props.theme.background.redHover};
   }
 `;
+
+// export const EditButton = styled.button`
+//   font-size: ${props => props.theme.fontSizes.xs};
+//   border-radius: ${props => props.theme.spacing(2)};
+//   padding: ${props => props.theme.spacing(3)};
+//   border: 1px solid ${props => props.theme.colors.orange};
+//   box-shadow: ${props => props.theme.shadows.orange};
+//   background: ${props => props.theme.background.orangeBtn};
+
+//   &:hover {
+//     color: ${props => props.theme.colors.white};
+//     background: ${props => props.theme.background.orangeHover};
+//   }
+// `;
