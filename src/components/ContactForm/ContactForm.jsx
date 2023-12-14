@@ -14,12 +14,10 @@ import {
 export const ContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-  console.log(contacts);
   const [formContact, setFormContact] = useState({ name: '', phone: '' });
 
   const handleChange = event => {
     const { name, value } = event.target;
-    console.log(contacts);
 
     setFormContact(prevState => ({
       ...prevState,
@@ -29,7 +27,6 @@ export const ContactForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(contacts);
 
     const isOnContacts = contacts.some(
       contact =>
@@ -41,7 +38,7 @@ export const ContactForm = () => {
       alert(`${formContact.name} is already in contacts.`);
       return;
     }
-    console.log(formContact);
+
     dispatch(addContact(formContact));
 
     reset();
